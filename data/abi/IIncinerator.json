@@ -1,0 +1,9 @@
+[
+  {
+    "inputs": [],
+    "name": "convertEarningsToGFIandBurn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
