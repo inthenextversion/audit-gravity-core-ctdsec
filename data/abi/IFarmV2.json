@@ -1,5 +1,18 @@
 [
   {
+    "inputs": [],
+    "name": "FarmFactory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -86,42 +99,42 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_rewardToken",
+        "name": "depositToken",
         "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "_lpToken",
+        "name": "rewardToken",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "_blockReward",
+        "name": "amount",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_startBlock",
+        "name": "blockReward",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_endBlock",
+        "name": "start",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_bonusEndBlock",
+        "name": "end",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_bonus",
+        "name": "bonusEnd",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bonus",
         "type": "uint256"
       }
     ],
@@ -132,15 +145,9 @@
   },
   {
     "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -160,19 +167,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

@@ -25,10 +25,10 @@ interface IFarmV2 {
         uint numFarmers; // total amount of farmers
     }
 
+    function initialize() external;
     function withdrawRewards(uint256 amount) external;
-    function transferOwnership(address newOwner) external; 
-    function owner() external view returns(address);
-    function init (address _rewardToken, uint256 _amount, address _lpToken, uint256 _blockReward, uint256 _startBlock, uint256 _endBlock, uint256 _bonusEndBlock, uint256 _bonus) external; 
+    function FarmFactory() external view returns(address);
+    function init(address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) external; 
     function pendingReward(address _user) external view returns (uint256);
 
     function userInfo(address user) external view returns (UserInfo memory);

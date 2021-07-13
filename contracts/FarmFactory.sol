@@ -31,8 +31,7 @@ contract FarmFactory is Ownable{
     event whiteListChanged(address _address, bool newBool);
 
     constructor(address _gfi, address _governance) {
-        FarmV2 FarmLogic = new FarmV2();
-        FarmImplementation = address(FarmLogic);
+        FarmImplementation = address(new FarmV2());
         gfi = _gfi;
         governance = _governance;
     }
@@ -76,8 +75,10 @@ contract FarmFactory is Ownable{
 
         //Fund the farm
         require(IERC20(rewardToken).transferFrom(msg.sender, address(farmClone), amount), "Failed to transfer tokens to back new farm");
+        
         //Init the newly created farm
-        IFarmV2(farmClone).init(rewardToken, amount, depositToken, blockReward, start, end, bonusEnd, bonus);
+        IFarmV2(farmClone).initialize();
+        IFarmV2(farmClone).init(depositToken, rewardToken, amount, blockReward, start, end, bonusEnd, bonus);
     }
 
     function _getFarmHash(address from, address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) internal pure returns(bytes32 _hash){

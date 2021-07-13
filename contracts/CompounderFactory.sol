@@ -32,7 +32,7 @@ struct FarmInfo {
         uint numFarmers; // total amount of farmers
     }
 
-//This will only be giving out the deposit token, since the reward token should be compounded and reinvested into the farm
+//TODO remove constructor and instead make contract initializable
 contract CompounderFactory is Ownable{
 
     struct ShareInfo{

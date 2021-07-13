@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import {iGravityToken} from "./interfaces/iGravityToken.sol";
-
+//TODO add logic for tier structure
 contract Governance is Initializable, OwnableUpgradeable {
     mapping(address => uint256) public feeBalance;
     address public tokenAddress;

@@ -1920,8 +1920,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Governance.sol": {
-      "lastModificationDate": 1625932193100,
-      "contentHash": "a0587a2f57620445b3513f94a40fb7fb",
+      "lastModificationDate": 1626139409270,
+      "contentHash": "ab21a4c2ecb45ea194239609c88ba59f",
       "sourceName": "contracts/Governance.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2314,8 +2314,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/FarmFactory.sol": {
-      "lastModificationDate": 1626111082350,
-      "contentHash": "19b20a2ac770e90f384a236ac472e40b",
+      "lastModificationDate": 1626193625810,
+      "contentHash": "c89f3367c615839bbdb9103979744db5",
       "sourceName": "contracts/FarmFactory.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2404,8 +2404,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/FarmV2.sol": {
-      "lastModificationDate": 1626111824310,
-      "contentHash": "6683dcbf5ec13e81543342fb36c42613",
+      "lastModificationDate": 1626206816040,
+      "contentHash": "90b15f03fba8472cc2396cd4bc3cbb70",
       "sourceName": "contracts/FarmV2.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2441,7 +2441,8 @@
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "./interfaces/iGovernance.sol",
         "./interfaces/IFarmFactory.sol",
-        "./interfaces/IIncinerator.sol"
+        "./interfaces/IIncinerator.sol",
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -2451,8 +2452,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/interfaces/IFarmV2.sol": {
-      "lastModificationDate": 1626031830734,
-      "contentHash": "fef62dc985de38bc1ea778bbdab42b6e",
+      "lastModificationDate": 1626193514770,
+      "contentHash": "dd439d98a9664b5982457aa2b53011ad",
       "sourceName": "contracts/interfaces/IFarmV2.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2764,7 +2765,7 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Share.sol": {
-      "lastModificationDate": 1625944829600,
+      "lastModificationDate": 1626204643570,
       "contentHash": "5db830aa825414f4e2a4dca2eab70629",
       "sourceName": "contracts/Share.sol",
       "solcConfig": {
@@ -3105,8 +3106,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/CompounderFactory.sol": {
-      "lastModificationDate": 1626117096130,
-      "contentHash": "8d5b816cb2cfcfedf1bc3c391ac19970",
+      "lastModificationDate": 1626193669210,
+      "contentHash": "3d0c91482cf8519081f6ef5c0047cdc3",
       "sourceName": "contracts/CompounderFactory.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -3156,6 +3157,48 @@
       ],
       "artifacts": [
         "CompounderFactory"
+      ]
+    },
+    "/home/crispy/SolidityRepo/dev-gravity-v1-core/node_modules/@openzeppelin/contracts/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1625122623020,
+      "contentHash": "cbb8386f0120d46d66ff42dffbbc16c1",
+      "sourceName": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Initializable"
       ]
     }
   }
