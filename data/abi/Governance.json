@@ -305,6 +305,30 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "tierLedger",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "tokenAddress",
     "outputs": [
@@ -346,6 +370,29 @@
         "type": "uint256"
       }
     ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tier3",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tier2",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tier1",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateTiers",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },

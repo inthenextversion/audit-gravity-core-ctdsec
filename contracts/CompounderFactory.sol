@@ -235,7 +235,7 @@ contract CompounderFactory is Ownable{
                 GFI.burn(fee);
             }
             else{//send it to fee manager
-                GFI.transfer(feeManager, fee);
+                RewardToken.transfer(feeManager, fee);
             }
         }
         //handle caller reward

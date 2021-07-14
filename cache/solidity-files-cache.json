@@ -1920,8 +1920,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Governance.sol": {
-      "lastModificationDate": 1626139409270,
-      "contentHash": "ab21a4c2ecb45ea194239609c88ba59f",
+      "lastModificationDate": 1626235591890,
+      "contentHash": "bc24794c48d7d8197b24665c911aaef9",
       "sourceName": "contracts/Governance.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2765,8 +2765,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Share.sol": {
-      "lastModificationDate": 1626204643570,
-      "contentHash": "5db830aa825414f4e2a4dca2eab70629",
+      "lastModificationDate": 1626234615400,
+      "contentHash": "d89b67eb4e23bc2cd0308812a3129198",
       "sourceName": "contracts/Share.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -3106,8 +3106,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/CompounderFactory.sol": {
-      "lastModificationDate": 1626193669210,
-      "contentHash": "3d0c91482cf8519081f6ef5c0047cdc3",
+      "lastModificationDate": 1626232543520,
+      "contentHash": "abe52382d5b5373c356c17b70ea0de96",
       "sourceName": "contracts/CompounderFactory.sol",
       "solcConfig": {
         "version": "0.8.4",

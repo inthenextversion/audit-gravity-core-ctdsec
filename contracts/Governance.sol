@@ -17,6 +17,9 @@ contract Governance is Initializable, OwnableUpgradeable {
         uint256 userBalance_LastClaim;
     }
     mapping(address => FeeLedger) public feeLedger;
+
+    mapping(address => uint[3]) public tierLedger;
+    uint[3] Tiers;
     uint256 totalFeeCollected;
     iGravityToken GFI;
     IERC20 WETH;
@@ -64,6 +67,14 @@ contract Governance is Initializable, OwnableUpgradeable {
         WETH = IERC20(WETH_ADDRESS);
         WBTC = IERC20(WBTC_ADDRESS);
     }
+
+    function updateTiers(uint tier3, uint tier2, uint tier1) external onlyOwner{
+        require(tier3 > tier2 && tier2 > tier1, 'Gravity Finance: Invalid Tier assignments');
+        Tiers[0] = tier1;
+        Tiers[1] = tier2;
+        Tiers[2] = tier3;
+    }
+
     /**
     * @dev internal function called when token contract calls govAuthTransfer or govAuthTransferFrom
     * Will update the recievers fee balance. This will not change the reward they would have got from this fee update
@@ -230,6 +241,30 @@ contract Governance is Initializable, OwnableUpgradeable {
         emit FeeClaimed(msg.sender, msg.sender, feeAllocation);
     }
 
+    function _updateUsersTiers(address from, address to, uint amount) internal{
+        uint fromNewBal = GFI.balanceOf(from) - amount;
+        uint toNewBal = GFI.balanceOf(to) + amount;
+        for (uint i = 0; i<3; i++){
+            if(fromNewBal >= Tiers[i]){
+                if(tierLedger[from][i] == 0){
+                    tierLedger[from][i] = block.timestamp;
+                }
+            }
+            else{
+                tierLedger[from][i] = 0;
+            }
+
+            if(toNewBal >= Tiers[i]){
+                if(tierLedger[to][i] == 0){
+                    tierLedger[to][i] = block.timestamp;
+                }
+            }
+            else{
+                tierLedger[to][i] = 0;
+            }
+        }
+    }
+
     /**
     * @dev when governance forwarding is enabled in the token contract, this function is called when users call transfer
     * @param caller address that originally called transfer
@@ -244,6 +279,7 @@ contract Governance is Initializable, OwnableUpgradeable {
         require(GFI.balanceOf(caller) >= amount, "GOVERNANCE: Amount exceedes balance!");
         updateFee(caller);
         _updateFeeReceiver(to, amount);
+        _updateUsersTiers(caller, to, amount);
         return true;
     }
 
@@ -264,6 +300,7 @@ contract Governance is Initializable, OwnableUpgradeable {
         require(GFI.balanceOf(from) >= amount, "GOVERNANCE: Amount exceedes balance!");
         updateFee(from);
         _updateFeeReceiver(to, amount);
+        _updateUsersTiers(from, to, amount);
         return true;
     }
 

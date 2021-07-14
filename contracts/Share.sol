@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-
+//paste in OZ full implementation but add initialize function
 contract Share is ERC20, Ownable {
     constructor() ERC20("Gravity Finance Farm Share Token", "GFI-ST"){}
 
