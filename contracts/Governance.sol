@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import {iGravityToken} from "./interfaces/iGravityToken.sol";
-//TODO add logic for tier structure
+
 contract Governance is Initializable, OwnableUpgradeable {
     mapping(address => uint256) public feeBalance;
     address public tokenAddress;
@@ -241,6 +241,9 @@ contract Governance is Initializable, OwnableUpgradeable {
         emit FeeClaimed(msg.sender, msg.sender, feeAllocation);
     }
 
+    /**
+    * @dev update from and to address tier based on the amount.
+    **/
     function _updateUsersTiers(address from, address to, uint amount) internal{
         uint fromNewBal = GFI.balanceOf(from) - amount;
         uint toNewBal = GFI.balanceOf(to) + amount;

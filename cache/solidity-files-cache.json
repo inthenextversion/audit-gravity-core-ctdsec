@@ -56,7 +56,7 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/uniswapv2/UniswapV2ERC20.sol": {
-      "lastModificationDate": 1626126850910,
+      "lastModificationDate": 1626278097990,
       "contentHash": "4274c69da6f887ae95d0335edd4e1c49",
       "sourceName": "contracts/uniswapv2/UniswapV2ERC20.sol",
       "solcConfig": {
@@ -411,8 +411,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/uniswapv2/libraries/UniswapV2Library.sol": {
-      "lastModificationDate": 1626127011710,
-      "contentHash": "cf04bb123ec8e076b38b279a6e9fb788",
+      "lastModificationDate": 1626278139010,
+      "contentHash": "e886f8ec5f0916043c3290cd02f17247",
       "sourceName": "contracts/uniswapv2/libraries/UniswapV2Library.sol",
       "solcConfig": {
         "version": "0.6.12",
@@ -456,8 +456,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/uniswapv2/UniswapV2Router02.sol": {
-      "lastModificationDate": 1626128486850,
-      "contentHash": "ae3fcf61d0c700e5c64b5133c8d2205b",
+      "lastModificationDate": 1626276345380,
+      "contentHash": "34cae3c825efbcd73c03b95a6694ec76",
       "sourceName": "contracts/uniswapv2/UniswapV2Router02.sol",
       "solcConfig": {
         "version": "0.6.12",
@@ -494,7 +494,6 @@
         "./libraries/SafeMath.sol",
         "./libraries/TransferHelper.sol",
         "./interfaces/IUniswapV2Router02.sol",
-        "./interfaces/IUniswapV2Pair.sol",
         "./interfaces/IUniswapV2Factory.sol",
         "./interfaces/IERC20.sol",
         "./interfaces/IWETH.sol"
@@ -946,8 +945,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/uniswapv2/interfaces/iGovernance.sol": {
-      "lastModificationDate": 1625122441700,
-      "contentHash": "6195c8ce7709135ddcda2d04eb9b0972",
+      "lastModificationDate": 1626236205960,
+      "contentHash": "cc5576c970a99d3911f7b24893e1bb5f",
       "sourceName": "contracts/uniswapv2/interfaces/iGovernance.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1429,8 +1428,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/interfaces/iGovernance.sol": {
-      "lastModificationDate": 1625122441690,
-      "contentHash": "f6d72a4dc0996d03136883d0f869d616",
+      "lastModificationDate": 1626236183970,
+      "contentHash": "d95a4535fb61d77848b1453beed93d32",
       "sourceName": "contracts/interfaces/iGovernance.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1920,8 +1919,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Governance.sol": {
-      "lastModificationDate": 1626235591890,
-      "contentHash": "bc24794c48d7d8197b24665c911aaef9",
+      "lastModificationDate": 1626296679670,
+      "contentHash": "2c2d347142de583701b8869a7dc747bd",
       "sourceName": "contracts/Governance.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2314,8 +2313,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/FarmFactory.sol": {
-      "lastModificationDate": 1626193625810,
-      "contentHash": "c89f3367c615839bbdb9103979744db5",
+      "lastModificationDate": 1626650387020,
+      "contentHash": "9ec0c3a3c9f9697b5d3ddea71ae12899",
       "sourceName": "contracts/FarmFactory.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2404,8 +2403,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/FarmV2.sol": {
-      "lastModificationDate": 1626206816040,
-      "contentHash": "90b15f03fba8472cc2396cd4bc3cbb70",
+      "lastModificationDate": 1626724105500,
+      "contentHash": "222f0f14e52bff78bcb18e10a24d6c8c",
       "sourceName": "contracts/FarmV2.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2442,6 +2441,7 @@
         "./interfaces/iGovernance.sol",
         "./interfaces/IFarmFactory.sol",
         "./interfaces/IIncinerator.sol",
+        "./interfaces/iGravityToken.sol",
         "@openzeppelin/contracts/proxy/utils/Initializable.sol"
       ],
       "versionPragmas": [
@@ -2721,8 +2721,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/interfaces/IShare.sol": {
-      "lastModificationDate": 1625945223740,
-      "contentHash": "7c0a2f4ac1656e40ce46e04e967ec147",
+      "lastModificationDate": 1626281038990,
+      "contentHash": "87eca4dace5fac23cbc224b3007fa555",
       "sourceName": "contracts/interfaces/IShare.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2765,8 +2765,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Share.sol": {
-      "lastModificationDate": 1626234615400,
-      "contentHash": "d89b67eb4e23bc2cd0308812a3129198",
+      "lastModificationDate": 1626281095510,
+      "contentHash": "d358ce2f119bf36d35b9e2b98382b684",
       "sourceName": "contracts/Share.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2799,8 +2799,10 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -3106,8 +3108,8 @@
       ]
     },
     "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/CompounderFactory.sol": {
-      "lastModificationDate": 1626232543520,
-      "contentHash": "abe52382d5b5373c356c17b70ea0de96",
+      "lastModificationDate": 1626750075920,
+      "contentHash": "ea8c1ed620fe34674296b9cca7e6d3ad",
       "sourceName": "contracts/CompounderFactory.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -3141,6 +3143,7 @@
       },
       "imports": [
         "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@openzeppelin/contracts/proxy/Clones.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
         "./interfaces/IFarmFactory.sol",
@@ -3150,7 +3153,8 @@
         "./interfaces/iGravityToken.sol",
         "./interfaces/IUniswapV2Router02.sol",
         "./interfaces/IUniswapV2Factory.sol",
-        "./interfaces/IPriceOracle.sol"
+        "./interfaces/IPriceOracle.sol",
+        "./interfaces/ITierChecker.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -3199,6 +3203,95 @@
       ],
       "artifacts": [
         "Initializable"
+      ]
+    },
+    "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/Flat_FarmV1.sol": {
+      "lastModificationDate": 1626372342143,
+      "contentHash": "a1f49034da36230fbae69d1aa1e0180a",
+      "sourceName": "contracts/Flat_FarmV1.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.0"
+      ],
+      "artifacts": [
+        "Context",
+        "Farm_Contract",
+        "IERC20",
+        "Ownable",
+        "SafeMath",
+        "TransferHelper"
+      ]
+    },
+    "/home/crispy/SolidityRepo/dev-gravity-v1-core/contracts/interfaces/ITierChecker.sol": {
+      "lastModificationDate": 1626744707790,
+      "contentHash": "e2ef43c628fa6a20bfa702348c810057",
+      "sourceName": "contracts/interfaces/ITierChecker.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITierChecker"
       ]
     }
   }

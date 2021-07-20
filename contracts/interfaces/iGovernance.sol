@@ -10,4 +10,6 @@ interface iGovernance {
     function delegateFee(address reciever) external returns (uint256);
 
     function claimFee() external returns (uint256);
+
+    function tierLedger(address user) external returns(uint[3] memory);
 }

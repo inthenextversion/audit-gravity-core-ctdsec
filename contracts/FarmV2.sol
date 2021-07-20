@@ -6,11 +6,13 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./interfaces/iGovernance.sol";
 import "./interfaces/IFarmFactory.sol";
 import "./interfaces/IIncinerator.sol";
+import "./interfaces/iGravityToken.sol";
 import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
 contract FarmV2 is Initializable{
     address public FarmFactory;
     IFarmFactory FARMFACTORY;
+    bool public initCalled;
     
     
     struct UserInfo {
@@ -61,7 +63,7 @@ contract FarmV2 is Initializable{
      * @param bonus bonus amount
      */
     function init(address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) public onlyFactory {
-        require(farmInfo.endBlock < block.number, "Can only reinitialize a farm after farm has ended");
+        require(!initCalled, 'Gravity Finance: Init already called');
         require(IERC20(rewardToken).balanceOf(address(this)) >= amount, "Farm does not have enough reward tokens to back initialization");
         IERC20 rewardT = IERC20(rewardToken);
         IERC20 lpT = IERC20(depositToken);
@@ -79,6 +81,7 @@ contract FarmV2 is Initializable{
         
         farmInfo.endBlock = end;
         farmInfo.farmableSupply = amount;
+        initCalled = true;
     }
 
     /**
@@ -139,6 +142,8 @@ contract FarmV2 is Initializable{
      * @param _amount the total deposit amount
      */
     function deposit(uint256 _amount) public {
+        require(farmInfo.startBlock <= block.number, 'Gravity Finance: Farming has not started!');
+        require(farmInfo.endBlock >= block.number, 'Gravity Finance: Farming has ended!');
         UserInfo storage user = userInfo[msg.sender];
         updatePool();
         if (user.amount > 0) { //first pay out pending rewards if already farming
@@ -146,7 +151,7 @@ contract FarmV2 is Initializable{
             if (FARMFACTORY.harvestFee() > 0 && !FARMFACTORY.whitelist(msg.sender)){ //If harvest fee is greater than 0 and caller is not on whitelist remove harvestFee from pending
                 uint fee = ( FARMFACTORY.harvestFee() * pending / 100);
                 if (address(farmInfo.rewardToken) == FARMFACTORY.gfi()){ //Burn it
-                    farmInfo.rewardToken.transfer(FARMFACTORY.incinerator(), fee);
+                    iGravityToken(FARMFACTORY.gfi()).burn(fee);
                 }
                 else { //Send it to the fee manager
                     farmInfo.rewardToken.transfer(FARMFACTORY.feeManager(), fee);
@@ -179,7 +184,7 @@ contract FarmV2 is Initializable{
         if (FARMFACTORY.harvestFee() > 0 && !FARMFACTORY.whitelist(msg.sender)){ //If harvest fee is greater than 0 and caller is not on whitelist remove harvestFee from pending
             uint fee = ( FARMFACTORY.harvestFee() * pending / 100);
             if (address(farmInfo.rewardToken) == FARMFACTORY.gfi()){ //Burn it
-                farmInfo.rewardToken.transfer(FARMFACTORY.incinerator(), fee);
+                iGravityToken(FARMFACTORY.gfi()).burn(fee);
             }
             else { //Send it to the fee manager
                 farmInfo.rewardToken.transfer(FARMFACTORY.feeManager(), fee);

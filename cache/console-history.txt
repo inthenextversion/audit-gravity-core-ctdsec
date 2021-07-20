@@ -6,6 +6,30 @@ const CalHash = await ethers.getContractFactory("CalHash")
 await calhash.getInitHash()
 const calhash = await CalHash.deploy()
 const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
+.exit
+await calhash.getInitHash()
+const calhash = await CalHash.deploy()
+const CalHash = await ethers.getContractFactory("CalHash")
 const calhash = await CalHash.deploy()
 .exit
 await calhash.getInitHash()

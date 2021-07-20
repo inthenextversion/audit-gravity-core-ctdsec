@@ -10,4 +10,5 @@ interface iGovernance {
     function delegateFee(address reciever) external returns (uint256);
 
     function depositFee(uint256 amountWETH, uint256 amountWBTC) external;
+    function tierLedger(address user) external returns(uint[3] memory);
 }

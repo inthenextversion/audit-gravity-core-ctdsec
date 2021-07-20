@@ -10,6 +10,16 @@
         "internalType": "address",
         "name": "farmFactoryAddress",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_requiredTier",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_tierChecker",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
@@ -69,6 +79,19 @@
   {
     "inputs": [
       {
+        "internalType": "bool",
+        "name": "_bool",
+        "type": "bool"
+      }
+    ],
+    "name": "changeCheckTiers",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "fid",
         "type": "uint256"
@@ -97,6 +120,19 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_tierChecker",
+        "type": "address"
+      }
+    ],
+    "name": "changeTierChecker",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "newFee",
         "type": "uint256"
@@ -105,6 +141,19 @@
     "name": "changeVaultFee",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "checkTiers",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -141,7 +190,12 @@
       },
       {
         "internalType": "address",
-        "name": "_swapOtherToken",
+        "name": "_lpA",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_lpB",
         "type": "address"
       }
     ],
@@ -241,7 +295,12 @@
       },
       {
         "internalType": "address",
-        "name": "swapOtherToken",
+        "name": "lpA",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "lpB",
         "type": "address"
       }
     ],
@@ -292,6 +351,25 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "lastHarvestDate",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "owner",
     "outputs": [
@@ -322,6 +400,19 @@
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "requiredTier",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -366,6 +457,19 @@
   {
     "inputs": [],
     "name": "swapFactory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tierChecker",
     "outputs": [
       {
         "internalType": "address",

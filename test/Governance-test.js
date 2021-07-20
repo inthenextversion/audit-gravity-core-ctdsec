@@ -96,5 +96,4 @@ describe("Governance Contract functional test", function() {
         await expect( mockGFI.connect(owner).transferFrom(addr2.address, addr1.address, "300000000000000000000000001")).to.be.reverted;
     });
 
-    //TODO Add test to see if delegateFee works as expected
 });

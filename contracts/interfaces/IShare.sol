@@ -7,4 +7,5 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 interface IShare is IERC20{
     function mint(address to, uint _amount) external returns(bool);
     function burn(address from, uint _amount) external returns(bool);
+    function initialize() external;
 }

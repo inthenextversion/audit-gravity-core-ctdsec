@@ -456,18 +456,10 @@ describe("Swap Exchange Contracts functional test", function () {
         let Pair = await ethers.getContractFactory("UniswapV2Pair");
         let pair = await Pair.attach(pairAddress);
         let lpAmount = await pair.balanceOf(addr1.address);
-        
-        //await pair.connect(addr4).transfer(pairAddress, lpAmount);
-        /*
-        let balBefore = await mockGFI.balanceOf(addr4.address);
-        await pair.connect(addr4).burn(addr4.address);
-        let balAfter = await mockGFI.balanceOf(addr4.address);
-        console.log("Difference: ", balAfter - balBefore);
-        */
         await pair.connect(addr1).approve(swapRouter.address, lpAmount);
-        console.log(lpAmount/ 10**18);
+        console.log("addr1: ", Number(await pair.balanceOf(addr1.address)/10**18));
         let balBefore = await mockGFI.balanceOf(addr1.address);
-        await swapRouter.removeLiquidity(GFI, WETH, "10000000000000000000", 0, 0, addr1.address, 1654341846);
+        await swapRouter.connect(addr1).removeLiquidity(GFI, WETH, lpAmount, 0, 0, addr1.address, 1654341846);
         let balAfter = await mockGFI.balanceOf(addr1.address);
         console.log("Difference: ", balAfter - balBefore);
     });
