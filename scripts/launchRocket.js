@@ -103,7 +103,7 @@ async function main() {
     
     console.log("T-Minus... 2");
     const CompounderFactory = await ethers.getContractFactory("CompounderFactory");
-    const compounderFactory = await CompounderFactory.deploy(GFI_ADDRESS, farmFactory.address);
+    const compounderFactory = await CompounderFactory.deploy(GFI_ADDRESS, farmFactory.address, 0, GFI_ADDRESS);
     
 
     console.log("T-Minus... 1");
