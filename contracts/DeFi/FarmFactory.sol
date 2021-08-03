@@ -38,6 +38,11 @@ contract FarmFactory is Ownable{
     **/
     event FarmCreated(address farmAddress, uint fid, uint start, uint end);
 
+    modifier onlyWhitelist() {
+        require(whitelist[msg.sender], "Caller is not in whitelist!");
+        _;
+    }
+
     constructor(address _gfi, address _governance) {
         FarmImplementation = address(new FarmV2());
         gfi = _gfi;
@@ -63,15 +68,22 @@ contract FarmFactory is Ownable{
         feeManager = _feeManager;
     }
 
+    function setGovernance(address _governance) external onlyOwner{
+        governance = _governance;
+    }
+
     /**
     * @dev allows caller to create farm as long as parameters are approved by factory owner
     * Creates a clone of FarmV2 contract, so that farm creation is cheap
     **/
     function createFarm(address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) external {
-        //require statement to see if caller is able to create farm with given inputs
-        bytes32 _hash = _getFarmHash(msg.sender, depositToken, rewardToken, amount, blockReward, start, end, bonusEnd, bonus);
-        require(FarmValid[_hash], "Farm parameters are not valid!");
-        FarmValid[_hash] = false; //Revoke so caller can not call again
+        //check if caller is on whitelist, used by IDO factory
+        if(!whitelist[msg.sender]){
+            //require statement to see if caller is able to create farm with given inputs
+            bytes32 _hash = _getFarmHash(msg.sender, depositToken, rewardToken, amount, blockReward, start, end, bonusEnd, bonus);
+            require(FarmValid[_hash], "Farm parameters are not valid!");
+            FarmValid[_hash] = false; //Revoke so caller can not call again
+        }
 
         //Create the clone proxy, and add it to the getFarm mappping, and allFarms array
         farmVersion[depositToken][rewardToken] = farmVersion[depositToken][rewardToken] + 1;

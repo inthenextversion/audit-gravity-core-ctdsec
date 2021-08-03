@@ -9,4 +9,5 @@ interface IShare is IERC20{
     function burn(address from, uint _amount) external returns(bool);
     function initialize() external;
     function initializeERC20(string memory name_, string memory symbol_) external;
+    function getSharesGFIWorthAtLastSnapshot(address _address) view external returns(uint);
 }

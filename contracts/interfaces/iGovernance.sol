@@ -11,7 +11,9 @@ interface iGovernance {
 
     function claimFee() external returns (uint256);
 
-    function tierLedger(address user) external returns(uint[3] memory);
+    function tierLedger(address user, uint index) external returns(uint);
 
     function depositFee(uint256 amountWETH, uint256 amountWBTC) external;
+
+    function Tiers(uint index) external returns(uint);
 }

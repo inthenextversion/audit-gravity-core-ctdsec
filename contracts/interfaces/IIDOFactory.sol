@@ -4,16 +4,10 @@ pragma solidity ^0.8.0;
 
 
 interface IIDOFactory {
-    /**
-     * Assume claimFee uses msg.sender, and returns the amount of WETH sent to the caller
-     */
-    function getFarm(address depositToken, address rewardToken) external view returns (address farm);
-    function getFarmIndex(address depositToken, address rewardToken) external view returns (uint fID);
-
     function whitelist(address _address) external view returns (bool);
+    function priceOracle() external view returns(address);
+    function slippage() external view returns(uint);
     function governance() external view returns (address);
-    function incinerator() external view returns (address);
-    function harvestFee() external view returns (uint);
     function gfi() external view returns (address);
     function weth() external view returns (address);
     function usdc() external view returns (address);
@@ -21,5 +15,7 @@ interface IIDOFactory {
     function swapRouter() external view returns (address);
     function swapFactory() external view returns (address);
     function feeManager() external view returns (address);
-    function allFarms(uint fid) external view returns (address); 
+    function deployFarm(address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) external;
+    function deployCompounder(address _farmAddress, address _depositToken, address _rewardToken, uint _maxCallerReward, uint _callerFee, uint _minHarvest, bool _lpFarm, address _lpA, address _lpB) external;
+    function farmFactory() external view returns(address);
 }

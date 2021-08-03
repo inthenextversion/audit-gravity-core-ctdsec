@@ -21,4 +21,5 @@ interface ICompounderFactory {
     function getFarm(address shareToken) external view returns(address);
     function gfi() external view returns(address);
     function swapFactory() external view returns(address);
+    function createCompounder(address _farmAddress, address _depositToken, address _rewardToken, uint _maxCallerReward, uint _callerFee, uint _minHarvest, bool _lpFarm, address _lpA, address _lpB) external;
 }

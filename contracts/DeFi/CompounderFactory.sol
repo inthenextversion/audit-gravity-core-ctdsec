@@ -41,14 +41,27 @@ contract CompounderFactory is Ownable{
     uint public slippage = 0;
     uint public requiredTier;
     bool public checkTiers;
+    mapping(address => bool) public whitelist;
 
     /**
     @dev emitted when a new compounder is created
     **/
     event CompounderCreated(address _farmAddress, uint requiredTier);
 
+    /**
+    * @dev emitted when owner changes the whitelist
+    * @param _address the address that had its whitelist status changed
+    * @param newBool the new state of the address
+    **/
+    event whiteListChanged(address _address, bool newBool);
+
     modifier compounderExists(address farmAddress){
         require(getShareToken[farmAddress] != address(0), "Compounder does not exist!");
+        _;
+    }
+
+    modifier onlyWhitelist() {
+        require(whitelist[msg.sender], "Caller is not in whitelist!");
         _;
     }
 
@@ -59,6 +72,11 @@ contract CompounderFactory is Ownable{
         ShareTokenImplementation = address(ShareTokenRoot);
         requiredTier = _requiredTier;
         tierManager = _tierManager;
+    }
+
+    function adjustWhitelist(address _address, bool _bool) external onlyOwner {
+        whitelist[_address] = _bool;
+        emit whiteListChanged(_address, _bool);
     }
 
     function changeVaultFee(uint newFee) external onlyOwner{
@@ -92,7 +110,7 @@ contract CompounderFactory is Ownable{
         slippage = _slippage;
     }
 
-    function createCompounder(address _farmAddress, address _depositToken, address _rewardToken, uint _maxCallerReward, uint _callerFee, uint _minHarvest, bool _lpFarm, address _lpA, address _lpB) external onlyOwner{
+    function createCompounder(address _farmAddress, address _depositToken, address _rewardToken, uint _maxCallerReward, uint _callerFee, uint _minHarvest, bool _lpFarm, address _lpA, address _lpB) external onlyWhitelist{
         
         require(getShareToken[_farmAddress] == address(0), "Share token already exists!");
         require(_callerFee <= 100, 'Gravity Finance: INVALID CALLER FEE PERCENT');
@@ -140,7 +158,7 @@ contract CompounderFactory is Ownable{
             sharesOwed = amountToDeposit * ShareToken.totalSupply()/Farm.userInfo(address(this)).amount;
         }
         else{
-            sharesOwed = 10**18; //1 share distrbuted
+            sharesOwed = 10**18; //1 share distrbuted NOTE Share uses 18 decimals
         }
 
         //deposit tokens into farm, but keep track of how much reward token we get

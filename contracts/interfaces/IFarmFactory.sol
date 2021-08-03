@@ -17,4 +17,6 @@ interface IFarmFactory {
     function gfi() external view returns (address);
     function feeManager() external view returns (address);
     function allFarms(uint fid) external view returns (address); 
+    function createFarm(address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) external;
+    function farmVersion(address deposit, address reward) external view returns(uint);
 }

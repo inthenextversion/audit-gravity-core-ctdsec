@@ -41,6 +41,12 @@ contract EarningsManager is Ownable {
     **/
     event whiteListChanged(address _address, bool newBool);
 
+    /** 
+    * @dev emitted when owner calls adminWithdraw
+    * @param asset the address of the asset that was moved out of the fee manager
+    **/
+    event AdminWithdrawCalled(address asset);
+
     constructor(address _factory) {
         swapPairs.push(address(0));
         factory = _factory;
@@ -305,5 +311,6 @@ contract EarningsManager is Ownable {
         //emit an event letting everyone know this was used
         OZ_IERC20 token = OZ_IERC20(asset);
         token.transfer(msg.sender, token.balanceOf(address(this)));
+        emit AdminWithdrawCalled(asset);
     }
 }

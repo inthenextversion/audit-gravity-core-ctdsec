@@ -19,8 +19,8 @@ contract Governance is Initializable, OwnableUpgradeable {
     mapping(address => FeeLedger) public feeLedger;
 
     mapping(address => uint[3]) public tierLedger;
-    uint[3] Tiers;
-    uint256 totalFeeCollected;
+    uint[3] public Tiers;
+    uint256 public totalFeeCollected;
     iGravityToken GFI;
     IERC20 WETH;
     IERC20 WBTC;
