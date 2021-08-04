@@ -207,13 +207,15 @@ contract FarmV2 is Initializable{
      */
     function emergencyWithdraw() public {
         UserInfo storage user = userInfo[msg.sender];
-        farmInfo.lpToken.transfer(address(msg.sender), user.amount);
-        emit EmergencyWithdraw(msg.sender, user.amount);
-        if (user.amount > 0) {
-            farmInfo.numFarmers -= 1;
-        }
+        uint256 _amount = user.amount;
         user.amount = 0;
         user.rewardDebt = 0;
+        totalStakedAmount = totalStakedAmount - _amount; 
+        if (_amount > 0) {
+            farmInfo.numFarmers -= 1;
+        }
+        farmInfo.lpToken.transfer(address(msg.sender), _amount);
+        emit EmergencyWithdraw(msg.sender, _amount);
     }
 
     /**
