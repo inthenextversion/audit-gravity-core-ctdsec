@@ -34,9 +34,12 @@ contract FarmFactory is Ownable{
     /**
     * @dev emitted when a farm is created
     * @param farmAddress the address of the new farm
-    * @param fid the farm ID of the new farm
+    * @param depositToken the address of the deposit token
+    * @param rewardToken the address of the reward token
+    * @param start the farm starting block
+    * @param end the farm end block
     **/
-    event FarmCreated(address farmAddress, uint fid, uint start, uint end);
+    event FarmCreated(address farmAddress, address depositToken, address rewardToken, uint start, uint end);
 
     modifier onlyWhitelist() {
         require(whitelist[msg.sender], "Caller is not in whitelist!");
@@ -98,7 +101,7 @@ contract FarmFactory is Ownable{
         //Init the newly created farm
         IFarmV2(farmClone).initialize();
         IFarmV2(farmClone).init(depositToken, rewardToken, amount, blockReward, start, end, bonusEnd, bonus);
-        emit FarmCreated(farmClone, getFarmIndex[depositToken][rewardToken], start, end);
+        emit FarmCreated(farmClone, depositToken, rewardToken, start, end);
     }
 
     function _getFarmHash(address from, address depositToken, address rewardToken, uint amount, uint blockReward, uint start, uint end, uint bonusEnd, uint bonus) internal pure returns(bytes32 _hash){
